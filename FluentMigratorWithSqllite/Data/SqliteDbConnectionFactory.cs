@@ -3,7 +3,7 @@ using Microsoft.Data.Sqlite;
 
 namespace FluentMigrationWithSqllite.Data;
 
-public class SqliteDbConnectionFactory
+public class SqliteDbConnectionFactory : IDbConnectionFactory
 {
     private readonly DbConnectionOptions _connectionOptions;
 

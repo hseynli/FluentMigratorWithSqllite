@@ -2,9 +2,14 @@
 
 namespace FluentMigrationWithSqllite.Data;
 
-public class UserRepository
+public class UserRepository : IUserRepository
 {
-    private readonly SqliteDbConnectionFactory _connectionFactory = new();
+    private readonly IDbConnectionFactory _connectionFactory;
+
+    public UserRepository(IDbConnectionFactory connectionFactory)
+    {
+        _connectionFactory = connectionFactory;
+    }
 
     public async Task<IEnumerable<User>> GetAllAsync()
     {

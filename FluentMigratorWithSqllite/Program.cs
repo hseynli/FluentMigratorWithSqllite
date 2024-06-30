@@ -8,7 +8,7 @@ using ServiceProvider serviceProvider = CreateServices();
 using IServiceScope scope = serviceProvider.CreateScope();
 UpdateDatabase(scope.ServiceProvider);
 
-UserService userService = new();
+UserService userService = new UserService(new UserRepository(new SqliteDbConnectionFactory()));
 
 Console.WriteLine("Create new user? Please enter yes or no.");
 
